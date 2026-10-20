@@ -1,0 +1,11 @@
+__pycache__/
+.pytest_cache/
+*.pyc
+.env
+.env.*
+.venv/
+dist/
+
+# Generated demo media
+demo/rehearsal/
+demo/video/

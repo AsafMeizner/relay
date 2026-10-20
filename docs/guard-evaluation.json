@@ -1,0 +1,89 @@
+{
+  "kind": "offline deterministic guard evaluation",
+  "live_model_calls": 0,
+  "limitations": "Hand-authored cases, not model quality or prompt-injection resistance. Exact quotations do not establish semantic support; humans can approve misleading claims.",
+  "passed": 10,
+  "total": 10,
+  "results": [
+    {
+      "case": "fabricated_quote",
+      "expected_block": true,
+      "blocked": true,
+      "unreviewed_rejected": true,
+      "reviewed_accepted": false,
+      "passed": true
+    },
+    {
+      "case": "unknown_source",
+      "expected_block": true,
+      "blocked": true,
+      "unreviewed_rejected": true,
+      "reviewed_accepted": false,
+      "passed": true
+    },
+    {
+      "case": "missing_citation",
+      "expected_block": true,
+      "blocked": true,
+      "unreviewed_rejected": true,
+      "reviewed_accepted": false,
+      "passed": true
+    },
+    {
+      "case": "empty_quote",
+      "expected_block": true,
+      "blocked": true,
+      "unreviewed_rejected": true,
+      "reviewed_accepted": false,
+      "passed": true
+    },
+    {
+      "case": "malformed_citation",
+      "expected_block": true,
+      "blocked": true,
+      "unreviewed_rejected": true,
+      "reviewed_accepted": false,
+      "passed": true
+    },
+    {
+      "case": "mixed_citations",
+      "expected_block": true,
+      "blocked": true,
+      "unreviewed_rejected": true,
+      "reviewed_accepted": false,
+      "passed": true
+    },
+    {
+      "case": "missing_text",
+      "expected_block": true,
+      "blocked": true,
+      "unreviewed_rejected": true,
+      "reviewed_accepted": false,
+      "passed": true
+    },
+    {
+      "case": "exact_quote",
+      "expected_block": false,
+      "blocked": false,
+      "unreviewed_rejected": true,
+      "reviewed_accepted": true,
+      "passed": true
+    },
+    {
+      "case": "unsupported_semantics",
+      "expected_block": false,
+      "blocked": false,
+      "unreviewed_rejected": true,
+      "reviewed_accepted": true,
+      "passed": true
+    },
+    {
+      "case": "source_instruction",
+      "expected_block": false,
+      "blocked": false,
+      "unreviewed_rejected": true,
+      "reviewed_accepted": true,
+      "passed": true
+    }
+  ]
+}

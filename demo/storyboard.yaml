@@ -1,0 +1,67 @@
+# Final production candidate: recorded-result cards plus real offline workflow. Not visually inspected.
+title: Relay
+url: http://127.0.0.1:8765/
+viewport: [1440, 1000]
+scale: 1.5
+voice: af_heart
+mood: focus
+max_seconds: 170
+beats:
+  - card: {kind: title, tag: Evidence-linked incident handoffs, heading: Relay, sub: "An incident handoff you can **trace and review**."}
+    say: "The next responder needs facts, uncertainties, and evidence. A confident summary can blur all three. Relay makes the review visible."
+  - card: {kind: points, heading: "Recorded Nebius result — October 19", items: ["NVIDIA Nemotron 3 Nano 30B A3B", "Browser retry: 4.343 seconds; four claims unreviewed", "Export stayed disabled; no automatic acceptance"]}
+    say: "This is a recorded result, not a new request. Nebius ran NVIDIA Nemotron in the browser. Four generated claims stayed unreviewed, and export stayed disabled."
+  - card: {kind: points, heading: "What this proves", items: ["Real provider and browser request path", "Earlier attempt failed after starting a request", "Cost unknown; human semantic review pending"]}
+    say: "An earlier attempt failed after starting a request. Cost is unknown, and human semantic review remains pending. This proves integration, not model reliability."
+  - say: "Now the actual offline workflow, using synthetic reports and no model calls. Its deterministic draft demonstrates the review controls."
+    do:
+      - wait: "#mode"
+      - zoom: "#mode"
+        seconds: 2
+        depth: 1.5
+  - say: "A deployment started. Checkout errors followed. Rollback was requested, but completion is unconfirmed. Timing alone does not prove a cause."
+    do:
+      - click: "#reset"
+      - zoom: "#sources"
+        seconds: 5
+        depth: 2
+  - say: "Each claim carries exact excerpts. Matching proves where the words came from. A person must still decide whether the conclusion follows."
+    do:
+      - zoom: "#claims"
+        seconds: 5
+        depth: 2
+  - say: "The reviewer checks both claims against the full sources, enters a name, and accepts a downloadable handoff. Suggested actions never execute."
+    do:
+      - click: ".review[data-index='0']"
+      - click: ".review[data-index='1']"
+      - type: "Demo Reviewer"
+        into: "#reviewer"
+      - click: "#export"
+      - zoom: "#status"
+        seconds: 4
+  - say: "Now try fabricated evidence. The draft says rollback completed, but those words are absent from the source. Acceptance is blocked."
+    do:
+      - scroll: top
+      - click: "#blocked"
+      - zoom: "#claims .blocked"
+        seconds: 5
+        depth: 2
+  - say: "New information also changes the review. Here the on-call report confirms completion. Editing evidence immediately disables export."
+    do:
+      - click: "#reset"
+      - click: ".review[data-index='0']"
+      - click: ".review[data-index='1']"
+      - type: "14:06 rollback requested. Completion is not confirmed. 14:12 rollback completion confirmed by on-call."
+        into: "textarea[data-source-id='oncall']"
+      - zoom: "#status"
+        seconds: 3
+  - say: "Regenerating creates a new revision and clears earlier reviews. Offline mode quotes each report verbatim; it does not resolve contradictory reports."
+    do:
+      - click: "#generate"
+      - zoom: "#claims"
+        seconds: 5
+        depth: 2
+  - card: {kind: points, heading: "Measured boundaries", items: ["Ten offline guard cases matched expectations", "Seven invalid-evidence cases blocked acceptance", "No model-quality or time-saving claim"]}
+    say: "Ten guard cases matched expectations and seven invalid-evidence cases were blocked. This measures guard behavior, not model quality."
+  - card: {kind: outro, heading: Relay, sub: "Trace the claim. **Review the handoff.**", tags: ["Local prototype", "Synthetic data", "MIT"]}
+    say: "A local prototype. Trace the claim. Review the handoff."

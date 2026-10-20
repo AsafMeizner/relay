@@ -1,0 +1,151 @@
+{
+  "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
+  "request_limit": 1,
+  "human_semantic_review": "pending",
+  "cost_usd": null,
+  "cost_note": "Not measured; owner reports $1 trial limit and paid usage disabled.",
+  "latency_seconds": 4.343,
+  "state": {
+    "revision": 2,
+    "mode": "Live model draft \u2014 nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
+    "remaining_generations": 0,
+    "brief": {
+      "claims": [
+        {
+          "text": "Deployment v42 started at 14:02.",
+          "citations": [
+            {
+              "source_id": "deployment",
+              "quote": "14:02 deployment v42 started."
+            }
+          ]
+        },
+        {
+          "text": "Checkout error rate was 12% at 14:05.",
+          "citations": [
+            {
+              "source_id": "monitor",
+              "quote": "14:05 checkout error rate 12%."
+            }
+          ]
+        },
+        {
+          "text": "Checkout error rate dropped to 3% at 14:09.",
+          "citations": [
+            {
+              "source_id": "monitor",
+              "quote": "At 14:09 error rate 3%."
+            }
+          ]
+        },
+        {
+          "text": "A rollback was requested at 14:06, but completion is not confirmed.",
+          "citations": [
+            {
+              "source_id": "oncall",
+              "quote": "14:06 rollback requested. Completion is not confirmed."
+            }
+          ]
+        }
+      ],
+      "open_questions": [
+        "Is the rollback completion confirmed?",
+        "What is the current checkout error rate?",
+        "What steps are required to fully resolve the incident?"
+      ],
+      "suggested_actions": [
+        "Verify rollback status with the on-call engineer.",
+        "Continue real-time monitoring of error rates.",
+        "Update stakeholders on incident progress.",
+        "Document findings and next steps for post\u2011incident review."
+      ]
+    },
+    "validation": {
+      "claims": [
+        {
+          "claim": {
+            "text": "Deployment v42 started at 14:02.",
+            "citations": [
+              {
+                "source_id": "deployment",
+                "quote": "14:02 deployment v42 started."
+              }
+            ]
+          },
+          "status": "needs_review",
+          "errors": []
+        },
+        {
+          "claim": {
+            "text": "Checkout error rate was 12% at 14:05.",
+            "citations": [
+              {
+                "source_id": "monitor",
+                "quote": "14:05 checkout error rate 12%."
+              }
+            ]
+          },
+          "status": "needs_review",
+          "errors": []
+        },
+        {
+          "claim": {
+            "text": "Checkout error rate dropped to 3% at 14:09.",
+            "citations": [
+              {
+                "source_id": "monitor",
+                "quote": "At 14:09 error rate 3%."
+              }
+            ]
+          },
+          "status": "needs_review",
+          "errors": []
+        },
+        {
+          "claim": {
+            "text": "A rollback was requested at 14:06, but completion is not confirmed.",
+            "citations": [
+              {
+                "source_id": "oncall",
+                "quote": "14:06 rollback requested. Completion is not confirmed."
+              }
+            ]
+          },
+          "status": "needs_review",
+          "errors": []
+        }
+      ],
+      "blocked": 0,
+      "review_required": true,
+      "sources": [
+        {
+          "id": "deployment",
+          "text": "14:02 deployment v42 started."
+        },
+        {
+          "id": "monitor",
+          "text": "14:05 checkout error rate 12%. At 14:09 error rate 3%."
+        },
+        {
+          "id": "oncall",
+          "text": "14:06 rollback requested. Completion is not confirmed."
+        }
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "deployment",
+      "text": "14:02 deployment v42 started."
+    },
+    {
+      "id": "monitor",
+      "text": "14:05 checkout error rate 12%. At 14:09 error rate 3%."
+    },
+    {
+      "id": "oncall",
+      "text": "14:06 rollback requested. Completion is not confirmed."
+    }
+  ],
+  "browser_checks": "passed: one attempt, no automatic review or acceptance, export disabled, no page errors"
+}
