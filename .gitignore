@@ -9,3 +9,7 @@ dist/
 # Generated demo media
 demo/rehearsal/
 demo/video/
+
+# Local interface check artifacts
+check-before/
+check-after/

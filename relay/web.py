@@ -100,7 +100,7 @@ def handler_for(app):
             pass
 
         def reply(self, status, data, content_type='application/json'):
-            raw = data.encode() if isinstance(data, str) else json.dumps(data).encode()
+            raw = data if isinstance(data, bytes) else data.encode() if isinstance(data, str) else json.dumps(data).encode()
             self.send_response(status)
             self.send_header('Content-Type', content_type)
             self.send_header('Content-Length', str(len(raw)))
@@ -118,10 +118,13 @@ def handler_for(app):
                 return self.reply(403, {'error': 'Loopback Host required'})
             if self.path == '/api/state':
                 return self.reply(200, {**app.state(), 'token': app.token})
-            files = {'/': ('index.html', 'text/html; charset=utf-8'), '/app.js': ('app.js', 'text/javascript; charset=utf-8'), '/style.css': ('style.css', 'text/css; charset=utf-8')}
+            files = {'/': ('index.html', 'text/html; charset=utf-8'), '/app.js': ('app.js', 'text/javascript; charset=utf-8'), '/style.css': ('style.css', 'text/css; charset=utf-8'),
+                     '/fonts/jetbrains-mono.woff2': ('jetbrains-mono.woff2', 'font/woff2'), '/fonts/ibm-plex-sans.woff2': ('ibm-plex-sans.woff2', 'font/woff2')}
             if self.path not in files:
                 return self.reply(404, {'error': 'Not found'})
             filename, kind = files[self.path]
+            if kind == 'font/woff2':
+                return self.reply(200, (Path(__file__).parent / 'static' / 'fonts' / filename).read_bytes(), kind)
             return self.reply(200, (Path(__file__).parent / 'static' / filename).read_text(), kind)
 
         def do_POST(self):
